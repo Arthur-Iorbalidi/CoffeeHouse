@@ -658,12 +658,12 @@ footer {
     .offer {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        gap: 40px;
         align-items: center;
     }
     h1 {
         text-align: center;
-        width: 800px;
+        max-width: 800px;
         font-family: Inter;
         font-size: 60px;
         font-style: normal;
@@ -680,11 +680,8 @@ footer {
         }
     }
     .btns {
-        width: 361px;
-        height: 46px;
         display: flex;
-        justify-content: space-between;
-        margin-top: 40px;
+        gap: 16px;
         label {
             cursor: pointer;
         }
@@ -1136,6 +1133,14 @@ footer {
             flex-wrap: wrap;
         }
     }
+    .Menu {
+        h1 {
+            font-size: 40px;
+            span {
+                font-size: 40px;
+            }
+        }
+    }
     footer {
         gap: 40px;
         .footer_left {
@@ -1208,7 +1213,13 @@ footer {
     }
     .Menu {
         .btns {
-            width: 345px;
+            gap: 8px;
+        }
+        h1 {
+            font-size: 32px;
+            span {
+                font-size: 32px;
+            }
         }
     }
     .modal {
