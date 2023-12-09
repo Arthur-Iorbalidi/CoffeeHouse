@@ -22,8 +22,12 @@ function AddDidhesCards(data) {
     for(let i = 0; i < data.length; i++) {
         let item = document.createElement("div");
         item.classList.add('dishes_item_item');
+
+        let img_block = document.createElement("div");
+        img_block.classList.add('img_block');
+
         let img = document.createElement("img");
-        img.src = `../img/${data[i].name.replace(/ /g, '_')}.png`;
+        img.src = `../img/${data[i].name.replace(/ /g, '_')}.jpg`;
         let text_block = document.createElement("div");
         text_block.classList.add('text_block');
         let text_block_div = document.createElement("div");
@@ -33,8 +37,9 @@ function AddDidhesCards(data) {
         p.textContent = data[i].description;
         let span = document.createElement("span");
         span.textContent = "$" + data[i].price;
-        item.append(img);
+        item.append(img_block);
         item.append(text_block);
+        img_block.append(img);
         text_block.append(text_block_div);
         text_block.append(span);
         text_block_div.append(h2);
@@ -186,7 +191,7 @@ function GetDataToModal(data, dishName) {
     let dishData = data.find(function(element) {
         return element.name === dishName;
     })
-    document.querySelector('.modal>img').src = `../img/${dishData.name.replace(/ /g, '_')}.png`;
+    document.querySelector('.modal>img').src = `../img/${dishData.name.replace(/ /g, '_')}.jpg`;
     document.querySelector('.modal_right>.header>h2').textContent = dishData.name;
     document.querySelector('.modal_right>.header>p').textContent = dishData.description;
     document.querySelector('.size1>span').textContent = dishData.sizes.s.size;
@@ -198,16 +203,28 @@ function GetDataToModal(data, dishName) {
     SetTotalPrice(parseFloat(dishData.price));
 }
 
+function DeleteChecked() {
+    const inputsModal = modal_right.querySelectorAll("input");
+    inputsModal.forEach(element => {
+        if(element.checked === true) {
+            element.checked = false;
+        }
+    });
+    inputsModal[0].checked = true;
+}
+
 document.body.addEventListener('click', (event) => {
     if(!event.target.closest('.modal') && !event.target.closest('.dishes_item_item')) {
         document.querySelector('.background_modal').classList.remove('opened');
         document.body.classList.remove('noScroll');
+        DeleteChecked();
     }
 })
 
 document.querySelector('.close').addEventListener('click', () => {
     document.querySelector('.background_modal').classList.remove('opened');
     document.body.classList.remove('noScroll');
+    DeleteChecked();
 })
 
 document.querySelector('.dishes').addEventListener("click", function(event) {
@@ -227,22 +244,22 @@ document.querySelector('.dishes').addEventListener("click", function(event) {
 })
 
 function SetTotalPrice(price) {
-    if(document.getElementById('size1').classList.contains('checked')) {
+    if(document.getElementById('size1').checked === true) {
         price += 0.0;
     }
-    if(document.getElementById('size2').classList.contains('checked')) {
+    if(document.getElementById('size2').checked === true) {
         price += 0.5;
     }
-    if(document.getElementById('size3').classList.contains('checked')) {
+    if(document.getElementById('size3').checked === true) {
         price += 1.0;
     }
-    if(document.getElementById('Additives1').classList.contains('checked')) {
+    if(document.getElementById('Additives1').checked === true) {
         price += 0.5;
     }
-    if(document.getElementById('Additives2').classList.contains('checked')) {
+    if(document.getElementById('Additives2').checked === true) {
         price += 0.5;
     }
-    if(document.getElementById('Additives3').classList.contains('checked')) {
+    if(document.getElementById('Additives3').checked === true) {
         price += 0.5;
     }
     price = price.toFixed(2);
@@ -262,10 +279,6 @@ document.querySelector('.modal_right').addEventListener('click', function(event)
                 return element.name === event.target.closest('.modal_right').querySelector('h2').textContent;
             })
             let price = parseFloat(dishData.price);
-            if(event.target.closest('.Size')) {
-                document.querySelector('.modal_right').querySelector('.checked').classList.toggle('checked')
-            }
-            event.target.closest('input').classList.toggle('checked');
             SetTotalPrice(price);
         };
     }
