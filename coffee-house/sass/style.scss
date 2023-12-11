@@ -206,6 +206,8 @@ header {
         pointer-events: none;
         z-index: -1;
         border-radius: 40px;
+        background: url(../img/imghero.png), lightgray 50% / cover no-repeat;
+        background-position: center top;
     }
     .Enjoy_content {
         max-width: 530px;
