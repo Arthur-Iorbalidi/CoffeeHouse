@@ -54,13 +54,13 @@ function AddDidhesCards(data) {
             document.querySelector('.dessert').append(item);
         }
     }
-    if(document.documentElement.clientWidth <= 768) {
+    if(mediaQuery.matches) {
         DataForMobile();
     }
 }
 
 function DishesAfterResize() {
-    if(document.documentElement.clientWidth > 768) {
+    if(!mediaQuery.matches) {
         const ItemsActive = document.querySelectorAll('.dishes_item_item');
         for(let i = 0; i < ItemsActive.length; i++) {
             ItemsActive[i].classList.remove('hidden');
@@ -82,7 +82,8 @@ GetDataFromJSON();
 
 document.querySelector('.refresh').addEventListener("click", refresh);
 
-window.addEventListener('resize', DishesAfterResize);
+var mediaQuery = window.matchMedia('(max-width: 768px)');
+mediaQuery.addEventListener('change', DishesAfterResize);
 
 const burgerBtn = document.querySelector('.burger');
 const burgerMenu = document.querySelector('.burger_menu');
@@ -104,7 +105,7 @@ document.querySelector('.burger_menu').addEventListener("click", (event) => {
 })
 
 function DataForMobile() {
-    if(document.documentElement.clientWidth <= 768) {
+    if(mediaQuery.matches) {
         const ItemsActive = document.querySelectorAll('.dishes_item_active>.dishes_item_item');
         if(ItemsActive.length > 4) {
             for(let i = 4; i < ItemsActive.length; i++) {
