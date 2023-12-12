@@ -22,10 +22,8 @@ function AddDidhesCards(data) {
     for(let i = 0; i < data.length; i++) {
         let item = document.createElement("div");
         item.classList.add('dishes_item_item');
-
         let img_block = document.createElement("div");
         img_block.classList.add('img_block');
-
         let img = document.createElement("img");
         img.src = `../img/${data[i].name.replace(/ /g, '_')}.jpg`;
         let text_block = document.createElement("div");
