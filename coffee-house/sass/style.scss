@@ -527,11 +527,9 @@ header {
         }
         .Btn_AppStore {
             transition: all 300ms;
-            cursor: pointer;
         }
         .Btn_GooglePlay {
             transition: all 300ms;
-            cursor: pointer;
         }
     }
     .MobileApp_right {
@@ -975,7 +973,6 @@ footer {
     }
     #Additives1:checked ~ div .Additives1 {
         background-color: #665F55;
-        cursor: default;
         rect {
             fill: #E1D4C9;
         }
@@ -985,7 +982,6 @@ footer {
     }
     #Additives2:checked ~ div .Additives2 {
         background-color: #665F55;
-        cursor: default;
         rect {
             fill: #E1D4C9;
         }
@@ -995,7 +991,6 @@ footer {
     }
     #Additives3:checked ~ div .Additives3 {
         background-color: #665F55;
-        cursor: default;
         rect {
             fill: #E1D4C9;
         }
