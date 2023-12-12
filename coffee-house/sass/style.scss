@@ -50,7 +50,6 @@ header {
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: center;
-                height: 28px;
                 .nav_items_text {
                     color: #403F3D;
                     font-family: Inter;
@@ -71,13 +70,11 @@ header {
     }
     .menuBtn_div {
         width: 72px;
-        height: 28px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         .menuBtn_content {
-            height: 24px;
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -148,7 +145,7 @@ header {
                 .nav_items_text {
                     color: #403F3D;
                     font-family: Inter;
-                    font-size: 16px;
+                    font-size: 32px;
                     font-style: normal;
                     font-weight: 600;
                     line-height: 125%;
@@ -157,23 +154,23 @@ header {
             }
         }
         .burger_menu_text {
-            width: 72px;
-            height: 24px;
+            width: 143px;
             display: flex;
             justify-content: space-between;
-            align-items: start;
+            align-items: center;
             .menuBtn_text {
                 color: #403F3D;
                 font-family: Inter;
-                font-size: 16px;
+                font-size: 32px;
                 font-style: normal;
                 font-weight: 600;
                 line-height: 125%;
             }
             .iconBtn {
-                width: 20px;
-                height: 20px;
-                background-image: url(../img/coffeecup.svg);
+                width: 40px;
+                height: 40px;
+                background: url(../img/coffeecup.svg) center no-repeat;
+                background-size: cover;
             }
         }
     }
@@ -206,8 +203,9 @@ header {
         pointer-events: none;
         z-index: -1;
         border-radius: 40px;
-        background: url(../img/imghero.png), lightgray 50% / cover no-repeat;
-        background-position: center top;
+        background: url(../img/imghero.png) no-repeat;
+        background-size: cover;
+        background-position: center;
     }
     .Enjoy_content {
         max-width: 530px;
@@ -249,6 +247,7 @@ header {
             cursor: pointer;
             .Enjoy_menuBtn_content {
                 display: flex;
+                align-items: center;
                 .Enjoy_menuBtn_text {
                     font-family: Inter;
                     font-size: 16px;
@@ -684,9 +683,6 @@ footer {
     .btns {
         display: flex;
         gap: 16px;
-        label {
-            cursor: pointer;
-        }
         #slide1:checked ~ .pagination_item1 {
             background-color: #665F55;
             cursor: default;
@@ -720,12 +716,13 @@ footer {
     }
     .pagination_item {
         display: flex;
-        justify-content: space-between;
+        gap: 8px;
         align-items: center;
         border-radius: 100px;
         border: 1px solid #C1B6AD;
         padding: 8px 16px 8px 8px;
         transition: all 300ms;
+        cursor: pointer;
         span {
             font-family: Inter;
             font-size: 16px;
@@ -734,15 +731,6 @@ footer {
             line-height: 150%;
             color: #403F3D;
         }
-    }
-    .pagination_item1 {
-        width: 115px;
-    }
-    .pagination_item2 {
-        width: 90px;
-    }
-    .pagination_item3 {
-        width: 124px;
     }
     .content_input {
         display: none;
@@ -916,6 +904,7 @@ footer {
             border-radius: 100px;
             border: 1px solid #C1B6AD;
             cursor: pointer;
+            transition: 300ms all;
             span {
                 font-weight: 600;
             }
@@ -952,6 +941,7 @@ footer {
         line-height: 150%;
         color: #403F3D;
         cursor: pointer;
+        transition: 300ms all;
     }
     #size1:checked ~ div .size1 {
         background-color: #665F55;
@@ -1347,11 +1337,35 @@ footer {
         }
     }
     .Menu {
+        .pagination_item:hover {
+            background-color: #665F55;
+            rect {
+                fill: #E1D4C9;
+            }
+            span {
+                color: #E1D4C9;
+            }
+        }
         .dishes_item {
             .dishes_item_item:hover {
                 img {
                     transform: scale(1.0);
                 }
+            }
+        }
+    }
+    .modal {
+        .close:hover {
+            background-color: #665F55;
+            color: #E1D4C9;
+        }
+        label:hover {
+            background-color: #665F55;
+            rect {
+                fill: #E1D4C9;
+            }
+            span {
+                color: #E1D4C9;
             }
         }
     }
