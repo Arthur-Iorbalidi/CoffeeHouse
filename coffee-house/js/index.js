@@ -4,16 +4,19 @@ const burgerMenu = document.querySelector('.burger_menu');
 burgerBtn.addEventListener("click", () => {
     burgerMenu.classList.toggle('burger_menu_opened');
     burgerBtn.classList.toggle('burgeroff');
+    document.body.classList.toggle('noScroll');
 })
 
 document.querySelector('.burger_menu').addEventListener("click", (event) => {
     if (event.target.closest('li')) {
         burgerMenu.classList.remove('burger_menu_opened');
         burgerBtn.classList.remove('burgeroff');
+        document.body.classList.remove('noScroll');
     }
     if (event.target.closest('.burger_menu_text')) {
         burgerMenu.classList.remove('burger_menu_opened');
         burgerBtn.classList.remove('burgeroff');
+        document.body.classList.remove('noScroll');
     }
 })
 
